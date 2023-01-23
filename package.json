@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "esbuild index.js --minify --platform=node --target=es2020 --outfile=dist/index.js",
+    "postbuild": "cd dist && zip -r index.zip index.js*"
+  },
+  "dependencies": {
+    "esbuild": "0.17.4",
+    "handlebars": "^4.7.7"
+  }
+}
