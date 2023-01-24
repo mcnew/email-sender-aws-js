@@ -1,6 +1,7 @@
 const handlerbars = require('handlebars');
 
-const AWS = require('aws-sdk');
+const pkg = 'aws-sdk';
+const AWS = require(`${pkg}`);
 const codecommit = new AWS.CodeCommit({
     apiVersion: '2015-04-13'
 });
