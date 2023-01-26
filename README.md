@@ -46,7 +46,7 @@ Git structure
 /configuration.json
 /email/
        welcome_template.hbs
-/partials/
+/partial/
        header.hbs
        footer.hbs
 ```
