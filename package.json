@@ -1,5 +1,19 @@
 {
+  "name": "email-sender-aws-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "esbuild index.js --bundle --minify --platform=node --target=es2020 --outfile=dist/index.js"
+  },
   "dependencies": {
+    "esbuild": "0.17.4",
     "handlebars": "^4.7.7"
+  },
+  "homepage": "https://github.com/mcnew/email-sender-aws-js",
+  "license": " GPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcnew/email-sender-aws-js.git"
   }
 }
