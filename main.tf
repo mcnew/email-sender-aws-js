@@ -4,15 +4,15 @@ resource "aws_sqs_queue" "email-sender" {
 
 data "archive_file" "lambda-source" {
   type        = "zip"
-  source_file = "${path.module}/build/index.js"
-  output_path = "${path.module}/build/${filesha256()}index.zip"
+  source_file = "${path.module}/index.js"
+  output_path = "${path.module}/${filesha256("${path.module}/index.js")}.zip"
 }
 
 resource "aws_lambda_function" "email-sender" {
   function_name = "email-sender-${var.environment}"
   handler = "index.handler"
   role = "${aws_iam_role.example_lambda.arn}"
-  runtime = "nodejs16.x"
+  runtime = "nodejs18.x"
 
   filename = "${data.archive_file.lambda-source.output_path}"
   source_code_hash = "${data.archive_file.lambda-source.output_base64sha256}"
