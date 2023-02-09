@@ -1,4 +1,4 @@
-const handlerbars = require('handlebars');
+const handlebars = require('handlebars');
 
 const pkg = 'aws-sdk';
 const AWS = require(`${pkg}`);
@@ -33,7 +33,7 @@ function getGlobalConfiguration() {
 
 function _getTemplate(name) {
     return getTextFile(`email/${name}.hbs`).then(text => {
-        return handlerbars.compile(text);
+        return handlebars.compile(text);
     });
 }
 
@@ -76,7 +76,7 @@ async function _loadPartials(partials, ndx) {
             return getTextFile(source).then(async (text) => {
                 let current;
                 if (text) {
-                    handlerbars.registerPartial(partial.name, text);
+                    handlebars.registerPartial(partial.name, text);
                     current = {
                         partial: partial.name
                     };
