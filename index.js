@@ -5,9 +5,6 @@ const AWS = require(`${pkg}`);
 const codecommit = new AWS.CodeCommit({
     apiVersion: '2015-04-13'
 });
-const sqs = new AWS.SQS({
-    apiVersion: '2012-11-05'
-});
 
 const BRANCH = process.env.BRANCH;
 const REPOSITORY = process.env.REPOSITORY;
